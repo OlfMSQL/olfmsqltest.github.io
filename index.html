@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance OLFMSQL</title>
+    <script>
+        function myFunction(){
+            alert("Not available right now.");
+        }
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+    </script>
+</head>
+<body>
+    
+    <div class="Box">
+<h1 onclick="myFunction()">Wartungsarbeiten</h1>
+  </div>
+  <hr>
+
+  <p>Hey There!, this Site is temporaly not available. Please try later again.</p>
+
+  <h2>-Olfmsql</h2>
+    <style>
+        body {
+            margin:0;
+            padding:0;
+            overflow-x:hidden;
+        }
+
+        html {
+            scroll-behavior:smooth;
+        }
+
+        .Box {
+            justify-content: center;
+            text-align:center;
+            font-size:1.3rem;
+            margin-top:15%;
+            position: relative;
+            border: 1px solid lightgray;
+            height:140px;
+            width:550px;
+            right:-36%;
+            font-family: serif;
+            box-shadow: 2px 2px 2px 2px darkgray;
+            cursor:pointer;
+        }
+
+        hr {
+            width:500px;
+            right:-0%;
+            margin-top:-3%;
+            position: relative;
+        }
+
+        p {
+            font-size:2.2rem;
+            position: relative;
+            right:-25%;
+            margin-top:5%;
+            font-family: serif;
+        }
+
+        ::selection {
+            color:gray;
+        }
+
+        h2 {
+            font-size:1.5rem;
+            right:-25%;
+            margin-top:-1%;
+            position: relative;
+        }
+    </style>
+</body>
+</html>
