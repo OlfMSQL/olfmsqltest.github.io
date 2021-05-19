@@ -87,7 +87,7 @@
     
     <div class="footer-clean">
         <footer>
-            <div class="container">
+            <div class="container" id="Con2">
                 <div class="row justify-content-center">
                     <div class="col-sm-4 col-md-3 item">
                         <h3>Services</h3>
@@ -125,6 +125,7 @@
 <style>
 
 html {
+    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
@@ -132,6 +133,7 @@ html {
   padding:10px 0;
   background-color:#fff;
   color:#4b4c4d;
+  overflow-y: hidden;
     
 }
 
@@ -140,6 +142,7 @@ html {
   margin-bottom:12px;
   font-weight:bold;
   font-size:16px;
+      overflow-y: hidden;
 }
 
 .footer-clean ul {
@@ -371,6 +374,7 @@ html {
     html {
     scroll-behavior: smooth;
     overflow-y: hidden;
+    animation:whiter 2s;
 }
 
 * {
@@ -378,9 +382,14 @@ html {
     padding: 0;
     box-sizing: border-box;
     font-family: "Inter",sans-serif;
-    overflow: hidden;
 }
 
+    
+    @keyframes whiter{
+        to {opacity: 1;}
+        from {opacity:0;}
+    }
+    
 main {
     background: #0372ff;
     height: auto;
@@ -405,7 +414,7 @@ h1 {
     display: block;
     z-index: 5;
     margin: auto 115px;
-    margin-top:-19%;
+    margin-top:-18%;
     overflow-y: hidden;
 }
 
@@ -414,10 +423,11 @@ h2 {
     position: relative;
     display: block;
     z-index: 5;
-    margin: 150px -933px;
+    margin: 150px -955px;
     margin-top:-14%;
     overflow-y: hidden;
 }
+
 
 p {
     font-size:2rem;
@@ -453,7 +463,15 @@ p {
   color: yellow;
   background: yellow;
 }
+    
+    #Con2 {
+        margin-top:1%;
+    }
 
+    header {
+        font-size:1.4rem;
+        color:blue;
+    }
     
 </style>
 
